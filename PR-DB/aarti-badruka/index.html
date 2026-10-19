@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en" class="pg-pr-db-aarti-badruka ms ms-prdb">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Aarti Badruka — PR, Events &amp; Collaborations</title>
+<link rel="icon" type="image/png" sizes="512x512" href="https://mcjoint.in/favicon.png">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<div id="site-root"></div>
+
+<script>
+  // Apps Script web apps refuse to be iframed from another domain, so an
+  // invite link does a top-level redirect straight to the join page rather
+  // than embedding it. Same as before — checked first, before anything else
+  // on this page renders.
+  const WEBAPP_URL = 'https://script.google.com/macros/s/AKfycbzfKXPPE7ENMFG7yke16XWh03S98Q0u4JgkOAQ8VZ3uJfBVYUy4xeZxrWoAaV-Z26uQ/exec';
+  const LOGO = 'https://mcjoint.in/images/mc/mc-joint-logo-5-mc-joint-block-logo.webp';
+  const TOKEN = new URLSearchParams(window.location.search).get('token') || '';
+  const root = document.getElementById('site-root');
+
+  if (TOKEN) {
+    root.innerHTML = `
+      <div class="redirect-wrap"><main class="redirect-card">
+        <div class="footer-logo"><img src="${LOGO}" alt="MC" onerror="this.parentElement.textContent='MC'"></div>
+        <h1 style="font-family:Georgia,serif;font-size:26px;font-weight:500;margin:18px 0 10px">Taking you to your invitation…</h1>
+        <p style="color:#918d87;font-size:13px">If nothing happens, <a href="${WEBAPP_URL}?page=join&token=${encodeURIComponent(TOKEN)}" style="color:#f5f4f1">tap here</a>.</p>
+      </main></div>
+    `;
+    window.location.replace(WEBAPP_URL + '?page=join&token=' + encodeURIComponent(TOKEN));
+  } else {
+    buildSite();
+  }
+
+  function buildSite() {
+    root.innerHTML = `
+      <header class="container topbar">
+        <div class="topbar-inner">
+          <div class="mc-badge"><img src="${LOGO}" alt="MC" onerror="this.remove()"> Powered by MC</div>
+          <nav class="site-nav">
+            <a href="#about">About</a>
+            <a href="#work">Work</a>
+            <a href="#contact">Get in Touch</a>
+            <a href="#contact" class="btn" onclick="presetInquiry('Request an Invite')">Request an Invite</a>
+          </nav>
+        </div>
+      </header>
+
+      <section class="hero container" style="border-top:none;padding-top:90px">
+        <div class="eyebrow">PR · Events · Collaborations</div>
+        <h1>Aarti Badruka</h1>
+        <p class="tagline">Curating the people, partners and moments behind Hyderabad's most talked-about events — a private circle built on relationships, not mailing lists.</p>
+        <div class="hero-ctas">
+          <a href="#contact" class="btn" onclick="presetInquiry('Request an Invite')">Request an Invite</a>
+          <a href="#work" class="btn btn-outline">See Her Work</a>
+        </div>
+        <div class="hero-glyph"></div>
+      </section>
+
+      <section id="about" class="container">
+        <div class="section-eyebrow">About</div>
+        <h2>A trusted name in Hyderabad PR</h2>
+        <div class="about-body">
+          <p>[Editable] Aarti Badruka has spent over a decade at the intersection of fashion, design and society events in Hyderabad — building the guest lists, partnerships and press relationships that make a launch feel like an occasion. This network is how she keeps that circle warm between events.</p>
+          <p>[Editable] Add a second paragraph here — notable long-term partners, the kind of events she's known for, or what makes an invite from her worth opening.</p>
+          <a class="about-more" href="./about.html">Curious how this private network itself works? →</a>
+        </div>
+      </section>
+
+      <section id="work" class="container">
+        <div class="section-eyebrow">Portfolio</div>
+        <h2>A selection of her work</h2>
+        <div class="work-grid">
+          <div class="work-card">
+            <span class="work-tag">Fashion</span>
+            <h3>[Event / Client Name]</h3>
+            <p>[Editable] One or two lines on the event — what it was, scale, and Aarti's role in it.</p>
+          </div>
+          <div class="work-card">
+            <span class="work-tag">Interiors</span>
+            <h3>[Event / Client Name]</h3>
+            <p>[Editable] One or two lines on the event — what it was, scale, and Aarti's role in it.</p>
+          </div>
+          <div class="work-card">
+            <span class="work-tag">Corporate</span>
+            <h3>[Event / Client Name]</h3>
+            <p>[Editable] One or two lines on the event — what it was, scale, and Aarti's role in it.</p>
+          </div>
+          <div class="work-card">
+            <span class="work-tag">Weddings &amp; Social</span>
+            <h3>[Event / Client Name]</h3>
+            <p>[Editable] One or two lines on the event — what it was, scale, and Aarti's role in it.</p>
+          </div>
+          <div class="work-card">
+            <span class="work-tag">Art &amp; Culture</span>
+            <h3>[Event / Client Name]</h3>
+            <p>[Editable] One or two lines on the event — what it was, scale, and Aarti's role in it.</p>
+          </div>
+          <div class="work-card">
+            <span class="work-tag">Retail Launch</span>
+            <h3>[Event / Client Name]</h3>
+            <p>[Editable] One or two lines on the event — what it was, scale, and Aarti's role in it.</p>
+          </div>
+        </div>
+        <p class="work-note">Placeholder cards — swap in real event names, one-liners, and (optionally) a photo per card whenever ready.</p>
+      </section>
+
+      <section id="contact" class="container">
+        <div class="section-eyebrow">Get in Touch</div>
+        <h2>Say hello, or request an invite</h2>
+        <div class="contact-grid">
+          <div class="contact-copy">
+            <p>Whether you'd like to be considered for the Circle, explore a partnership, or just say hello — this reaches Aarti's team directly.</p>
+            <ul>
+              <li>Invite requests are reviewed and sent personally, not auto-approved</li>
+              <li>Press &amp; collaboration enquiries are usually answered within a few days</li>
+              <li>Your details are never sold or shared onward</li>
+            </ul>
+          </div>
+          <form class="contact-form" id="inquiry-form" onsubmit="return submitInquiry(event)">
+            <label>What can we help with?</label>
+            <select id="inq-type">
+              <option>Request an Invite</option>
+              <option>Press / Collaboration</option>
+              <option>General Inquiry</option>
+            </select>
+            <label>Name *</label>
+            <input id="inq-name" required placeholder="Your full name">
+            <label>Email</label>
+            <input id="inq-email" type="email" placeholder="you@example.com">
+            <label>Phone</label>
+            <input id="inq-phone" type="tel" placeholder="10-digit mobile number">
+            <label>Message</label>
+            <textarea id="inq-message" placeholder="A line or two of context is helpful"></textarea>
+            <button class="btn form-btn" id="inq-submit" type="submit">Send</button>
+            <div class="form-msg" id="inq-msg"></div>
+            <div class="form-note">At least an email or a phone number is needed so we can get back to you.</div>
+          </form>
+        </div>
+      </section>
+
+      <footer class="container">
+        <div class="footer-logo"><img src="${LOGO}" alt="MC" onerror="this.remove()"></div>
+        <div class="fine-print">Powered by MC</div>
+      </footer>
+    `;
+  }
+
+  function presetInquiry(type) {
+    setTimeout(() => {
+      const sel = document.getElementById('inq-type');
+      if (sel) sel.value = type;
+    }, 50);
+  }
+
+  function submitInquiry(evt) {
+    evt.preventDefault();
+    const name = document.getElementById('inq-name').value.trim();
+    const email = document.getElementById('inq-email').value.trim();
+    const phone = document.getElementById('inq-phone').value.trim();
+    const msgEl = document.getElementById('inq-msg');
+    msgEl.style.display = 'none';
+
+    if (!name || (!email && !phone)) {
+      msgEl.className = 'form-msg err';
+      msgEl.textContent = 'Please add your name and at least an email or phone number.';
+      msgEl.style.display = 'block';
+      return false;
+    }
+
+    const data = {
+      formType: 'inquiry',
+      type: document.getElementById('inq-type').value,
+      name: name, email: email, phone: phone,
+      message: document.getElementById('inq-message').value.trim()
+    };
+
+    const btn = document.getElementById('inq-submit');
+    btn.disabled = true; btn.textContent = 'Sending…';
+
+    // Sent as a plain-text body on purpose — this avoids a CORS preflight,
+    // which Apps Script's web app endpoint doesn't handle. Fired with
+    // no-cors, so we don't try to read the response back; the write +
+    // notification already happened server-side by the time this resolves.
+    fetch(WEBAPP_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      body: JSON.stringify(data)
+    }).then(() => {
+      btn.disabled = false; btn.textContent = 'Send';
+      document.getElementById('inquiry-form').reset();
+      msgEl.className = 'form-msg ok';
+      msgEl.textContent = "Thank you — we'll be in touch shortly.";
+      msgEl.style.display = 'block';
+    }).catch(() => {
+      btn.disabled = false; btn.textContent = 'Send';
+      msgEl.className = 'form-msg err';
+      msgEl.textContent = 'Something went wrong — please try again in a moment.';
+      msgEl.style.display = 'block';
+    });
+    return false;
+  }
+</script>
+<noscript>
+  <div class="redirect-wrap"><main class="redirect-card">
+    <h1 style="font-family:Georgia,serif">Aarti Badruka</h1>
+    <p style="color:#918d87">Please enable JavaScript to view this page.</p>
+  </main></div>
+</noscript>
+</body>
+</html>

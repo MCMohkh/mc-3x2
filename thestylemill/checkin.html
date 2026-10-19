@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en" class="pg-thestylemill-checkin ms ms-tsm-page">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <title>Check In — The Style Mill</title>
+  <meta name="robots" content="noindex, nofollow">
+
+<!-- Social share preview (same image as the Home and Visit pages) -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://mcjoint.in/thestylemill/checkin.html">
+  <meta property="og:site_name" content="The Style Mill × MC Joint">
+  <meta property="og:title" content="Check In — The Style Mill · Hyderabad">
+  <meta property="og:description" content="You're here. Check in for the full floor map and every designer's stall number.">
+  <meta property="og:image" content="https://mcjoint.in/images/the-style-mill/tsm-season6-og-share.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="The Style Mill Season 6 · Diwali Edit 2026">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Check In — The Style Mill · Hyderabad">
+  <meta name="twitter:description" content="You're here. Check in for the full floor map and every designer's stall number.">
+  <meta name="twitter:image" content="https://mcjoint.in/images/the-style-mill/tsm-season6-og-share.jpg">
+  
+  <!-- Styles for this page live in /css/style.css (class ms-tsm-page). -->
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<header class="hero">
+  <a href="index.html"><img src="/images/the-style-mill/tsm-logo-white.webp" alt="The Style Mill"></a>
+  <p class="where">Taj Deccan, Hyderabad · 20 September</p>
+  <h1>You're in.<br><em>Let's find your look.</em></h1>
+  <p class="lede">Tell us what you're shopping for and the floor map opens right after.</p>
+</header>
+
+<!-- ============ CHECK-IN FORM ============ -->
+<main id="formSection">
+  <form class="card" id="checkinForm" novalidate>
+
+    <fieldset>
+      <legend class="q">Your details</legend>
+      <p class="hint">Just so we can say hello and follow up after the show.</p>
+      <div class="field"><label for="ciName">Full name</label><input type="text" id="ciName" autocomplete="name" placeholder="Your full name" required></div>
+      <div class="field"><label for="ciPhone">Phone (WhatsApp)</label><input type="tel" id="ciPhone" autocomplete="tel" inputmode="tel" placeholder="+91 XXXXX XXXXX" required></div>
+      <div class="field"><label for="ciEmail">Email <span>(optional)</span></label><input type="email" id="ciEmail" autocomplete="email" placeholder="you@email.com"></div>
+    </fieldset>
+
+    <fieldset>
+      <legend class="q">What's the occasion? <span class="count" data-count="occasionGroup"></span></legend>
+      <p class="hint">Pick as many as apply.</p>
+      <div class="chips" id="occasionGroup" role="group" aria-label="Occasion"></div>
+    </fieldset>
+
+    <fieldset>
+      <legend class="q">What are you looking for? <span class="count" data-count="lookingGroup"></span></legend>
+      <p class="hint">Tap everything you'd like to see today.</p>
+      <div id="lookingGroup"></div>
+      <div class="field" style="margin-top:1.1rem;">
+        <label for="ciNotes">Something specific in mind? <span>(optional)</span></label>
+        <input type="text" id="ciNotes" maxlength="200" placeholder="e.g. pastel sherwani for a day wedding">
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend class="q">Budget for one outfit</legend>
+      <p class="hint">A rough range is plenty. Pick one.</p>
+      <div class="chips" id="budgetGroup" role="group" aria-label="Budget per outfit"></div>
+    </fieldset>
+
+    <fieldset>
+      <legend class="q">Who are you shopping for or with? <span class="count" data-count="withGroup"></span></legend>
+      <p class="hint">Pick as many as apply.</p>
+      <div class="chips" id="withGroup" role="group" aria-label="Shopping for or with"></div>
+    </fieldset>
+
+    <div class="submit-bar">
+      <button type="submit" class="btn" id="checkinSubmitBtn">Open the floor map</button>
+      <p class="fine" id="formError" role="alert" hidden style="color:#9b2c2c;font-weight:600;"></p>
+      <p class="fine" id="formFine">Takes under a minute. No spam, ever.</p>
+    </div>
+  </form>
+  <div style="height:3rem;"></div>
+</main>
+
+<!-- ============ FLOOR MAP + DIRECTORY ============ -->
+<section class="floor" id="mapSection" hidden>
+  <div class="floor-head">
+    <p class="hi" id="welcomeLine">Welcome</p>
+    <h2>The floor, stall by stall.</h2>
+    <button type="button" class="link" id="notYou">Not you? Check in again</button>
+  </div>
+
+  <div class="map-frame" id="mapFrame" role="button" tabindex="0" aria-label="Enlarge floor map">
+    <img src="/images/the-style-mill/hyd-stall-layout.webp" alt="The Style Mill Hyderabad stall layout at Taj Deccan">
+    <span class="zoom"><i class="fas fa-magnifying-glass-plus"></i>Tap to enlarge</span>
+  </div>
+
+  <div class="find">
+    <h3>Find a designer</h3>
+    <div class="search">
+      <i class="fas fa-search"></i>
+      <input type="search" id="directorySearch" placeholder="Search by name or stall number" autocomplete="off">
+    </div>
+  </div>
+  <ul class="stalls" id="directoryList"></ul>
+
+  <p class="floor-note">Stalls 34, 35, 42, 43, 48 and 49 are trial rooms. Two stalls are still being finalised, so ask any team member on the floor if you can't find someone.</p>
+</section>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Floor map" hidden>
+  <div class="lightbox-bar"><span>Scroll to move around the map</span><button type="button" id="lightboxClose">Close</button></div>
+  <div class="lightbox-scroll"><img src="/images/the-style-mill/hyd-stall-layout.webp" alt="Full-size stall layout"></div>
+</div>
+
+<footer>
+  <img src="/images/the-style-mill/tsm-logo-white.webp" alt="The Style Mill"><br>
+  Season 6 · Diwali Edit 2026
+  <div class="social" style="margin-top:.9rem;">
+    <a href="https://www.instagram.com/the_stylemill/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+    <a href="https://wa.me/919000008909" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+  </div>
+  <div class="mc">Campaign Strategy &amp; Digital by <a href="/">MC Joint, Hyderabad</a></div>
+</footer>
+
+<script>
+const TSM_WEBAPP_URL = 'https://script.google.com/macros/s/AKfycbwluZtzjR40VDNhCK1fxj3iOj2mR_YoZa2wr-bMhofwYUafMEUhkWTrBppbWL3xyyD9cw/exec';
+const STORAGE_KEY = 'tsm_checkin_hyd_2026';
+
+/* =====================================================================
+   OPTIONS — edit these lists to change the buttons. Nothing else to touch.
+   ===================================================================== */
+const OCCASIONS = ['Festive','Wedding','Sangeet / Mehendi','Reception','Party wear','Office / Formal','Casual','Relaxed','Gifting','Just browsing'];
+
+const LOOKING_FOR = [
+  { group:'Wedding & festive', items:['Sherwani','Bandhgala / Jodhpuri','Kurta set','Indo-western','Nehru / Bundi jacket','Waistcoat'] },
+  { group:'Everyday & smart',  items:['Casual kurta','Shirts','Linen / resort wear','Blazer / suit','Co-ord set','Trousers'] },
+  { group:'Finishing touches', items:['Footwear','Jewellery','Stoles & accessories','Unstitched fabric'] }
+];
+
+const BUDGETS = ['Under ₹5k','₹5k – 10k','₹10k – 20k','₹20k – 40k','₹40k +','Not sure yet'];
+
+const SHOPPING_WITH = ['Myself','Husband','Wife','Father','Mother','Brother','Sister','Son','Friend(s)','Groom'];
+
+/* =====================================================================
+   STALL DIRECTORY — gaps (34,35,42,43,48,49) are trial room space.
+   ig = Instagram handle, web = website. Add or fix links here.
+   ===================================================================== */
+const STALLS = [
+  {no:'1',  name:'Heartistry', ig:'heartistryofficial_', web:'https://heartistry.in/'},
+  {no:'2',  name:'Varun Chakkilam'},
+  {no:'3',  name:'Label J', ig:'labeljmensco', web:'https://labeljmensco.com/'},
+  {no:'4',  name:'Payal & Rishab'},
+  {no:'5',  name:'Naman Ahuja', ig:'namanahujadesignhouse', web:'https://namanahuja.com/'},
+  {no:'6',  name:'Riqo', ig:'riqostudio'},
+  {no:'7',  name:'House of Koa'},
+  {no:'8',  name:'Nimai', ig:'shopnimai', web:'https://shopnimai.in/'},
+  {no:'9',  name:'Keshawa', ig:'keshawaofficial', web:'https://keshawaofficial.com/'},
+  {no:'10', name:'Modello Domani'},
+  {no:'11', name:'Modello Domani'},
+  {no:'12', name:'Shreyansh', ig:'shreyansh_designs', web:'https://shreyanshdesigns.com/'},
+  {no:'13', name:'Shay Studio', ig:'shaystudio.in', web:'https://shaystudio.in/'},
+  {no:'14', name:'Kudrat by Chirag', ig:'kudratcouture', web:'https://shopnavaa.com/collections/kudrat-by-chirag'},
+  {no:'15', name:'Golden Brush', ig:'thegoldenbrush_official'},
+  {no:'16/T1', name:'Akanksha Jewellery'},
+  {no:'17/T2', name:'House of Matches'},
+  {no:'18', name:'Kanishk Ethnics'},
+  {no:'19', name:'Manav (Anuradha) Grewal', ig:'anuradhagrewalofficial', web:'https://anuradhagrewal.in/'},
+  {no:'20', name:'Ashish Bunker Jaipur', ig:'ashishbunkerjaipur'},
+  {no:'21', name:'Uniqa', ig:'uniqa.co.in', web:'https://uniqa.co.in/'},
+  {no:'22', name:'Sanhi', ig:'sanhi.in', web:'https://sanhi.in/'},
+  {no:'23', name:'Amrit Dawani', ig:'amritdawaniofficial', web:'https://amritdawani.com/'},
+  {no:'24', name:'Adyaaye', ig:'adyaaye_official', web:'https://adyaaye.com/'},
+  {no:'24B',name:'Amrit Dawani', ig:'amritdawaniofficial', web:'https://amritdawani.com/'},
+  {no:'25', name:'Gargee Designs', ig:'gargee_designers', web:'https://gargee.com/'},
+  {no:'26', name:'Gargee Designs', ig:'gargee_designers', web:'https://gargee.com/'},
+  {no:'27', name:'I Stylo by Dana Designs', ig:'i_stylo.in'},
+  {no:'28', name:'Saje x Rohit Doshi'},
+  {no:'29', name:'Saje Multi Designer'},
+  {no:'30', name:'Aastha Sanghvi'},
+  {no:'31', name:'Amansh', ig:'studio.amansh'},
+  {no:'32', name:'So Man', web:'https://somanstore.com/'},
+  {no:'33', name:'Shay Studio', ig:'shaystudio.in', web:'https://shaystudio.in/'},
+  {no:'36', name:'Abraham & Thakore', ig:'abrahamandthakore', web:'https://www.abrahamandthakore.com/'},
+  {no:'37', name:'Gabana'},
+  {no:'38', name:'Archana Jain'},
+  {no:'39', name:'Siddharth Kakkar', ig:'sidharthkkakkar', web:'https://sidharthkkakkar.com/'},
+  {no:'40', name:'Shubh Vastram Jodhpur', ig:'shubh.vastram', web:'https://shubhvastramdesigns.com/'},
+  {no:'41', name:'Statement', ig:'thestatementhyd'},
+  {no:'44', name:'Naymish', ig:'naymish'},
+  {no:'45', name:'Darshika'},
+  {no:'46', name:'Abees', ig:'abees_official', web:'https://abees.in/'},
+  {no:'47', name:'Arva by Palak Agrawal Gupta', ig:'arvafashion.men'},
+  {no:'50', name:'Divyansh & Garvit | Karmacode', ig:'divyanshgarvitindia'},
+  {no:'51', name:'Divyansh & Garvit | Karmacode', ig:'divyanshgarvitindia'},
+  {no:'52', name:'House of Jama', ig:'house_of_jama', web:'https://jamaartofdressing.com/'},
+  {no:'53', name:'Abraham & Thakore', tbc:true, ig:'abrahamandthakore', web:'https://www.abrahamandthakore.com/'},
+  {no:'54', name:'Aakanksha Jewels & Diamonds', tbc:true}
+];
+
+/* ---------- Directory ---------- */
+function renderDirectory(filter){
+  const list = document.getElementById('directoryList');
+  const f = (filter || '').trim().toLowerCase();
+  const rows = STALLS.filter(s => !f || s.no.toLowerCase().includes(f) || s.name.toLowerCase().includes(f));
+  if(!rows.length){
+    list.outerHTML = '<div class="empty" id="directoryList">No match. Try another name or a stall number.</div>';
+    return;
+  }
+  const html = rows.map(s => {
+    const links = [];
+    if(s.ig)  links.push(`<a href="https://www.instagram.com/${s.ig}/" target="_blank" rel="noopener" aria-label="${s.name} on Instagram"><i class="fab fa-instagram"></i></a>`);
+    if(s.web) links.push(`<a href="${s.web}" target="_blank" rel="noopener" aria-label="${s.name} website"><i class="fas fa-globe"></i></a>`);
+    return `<li class="stall">
+      <span class="no">${s.no}</span>
+      <span class="name">${s.name}${s.tbc ? '<small>Location to be confirmed</small>' : ''}</span>
+      <span class="links">${links.join('')}</span>
+    </li>`;
+  }).join('');
+  const el = document.getElementById('directoryList');
+  if(el.tagName !== 'UL'){ el.outerHTML = '<ul class="stalls" id="directoryList"></ul>'; }
+  document.getElementById('directoryList').innerHTML = html;
+}
+renderDirectory('');
+document.getElementById('directorySearch').addEventListener('input', e => renderDirectory(e.target.value));
+
+/* ---------- Chips ---------- */
+function buildChips(container, items, selected, multi, countEl){
+  items.forEach(label => {
+    const b = document.createElement('button');
+    b.type = 'button'; b.className = 'chip'; b.textContent = label; b.setAttribute('aria-pressed','false');
+    b.addEventListener('click', () => {
+      if(multi){
+        if(selected.has(label)){ selected.delete(label); b.classList.remove('on'); b.setAttribute('aria-pressed','false'); }
+        else { selected.add(label); b.classList.add('on'); b.setAttribute('aria-pressed','true'); }
+      } else {
+        const was = selected.has(label);
+        selected.clear();
+        container.querySelectorAll('.chip').forEach(c => { c.classList.remove('on'); c.setAttribute('aria-pressed','false'); });
+        if(!was){ selected.add(label); b.classList.add('on'); b.setAttribute('aria-pressed','true'); }
+      }
+      if(countEl) countEl.textContent = selected.size ? selected.size + ' selected' : '';
+    });
+    container.appendChild(b);
+  });
+}
+const sel = { occasion:new Set(), looking:new Set(), budget:new Set(), with:new Set() };
+const countFor = id => document.querySelector(`[data-count="${id}"]`);
+
+buildChips(document.getElementById('occasionGroup'), OCCASIONS, sel.occasion, true, countFor('occasionGroup'));
+buildChips(document.getElementById('budgetGroup'), BUDGETS, sel.budget, false, null);
+buildChips(document.getElementById('withGroup'), SHOPPING_WITH, sel.with, true, countFor('withGroup'));
+
+const lookingWrap = document.getElementById('lookingGroup');
+LOOKING_FOR.forEach(g => {
+  const h = document.createElement('div'); h.className = 'sub'; h.textContent = g.group;
+  const c = document.createElement('div'); c.className = 'chips';
+  lookingWrap.appendChild(h); lookingWrap.appendChild(c);
+  buildChips(c, g.items, sel.looking, true, countFor('lookingGroup'));
+});
+
+/* ---------- Reveal map ---------- */
+function showMap(firstName, scroll){
+  document.getElementById('formSection').hidden = true;
+  document.getElementById('mapSection').hidden = false;
+  document.getElementById('welcomeLine').textContent = firstName ? 'Welcome, ' + firstName : 'Welcome';
+  window.scrollTo({top:0, behavior: scroll ? 'smooth' : 'auto'});
+}
+function showForm(){
+  document.getElementById('mapSection').hidden = true;
+  document.getElementById('formSection').hidden = false;
+  const btn = document.getElementById('checkinSubmitBtn');
+  btn.textContent = 'Open the floor map'; btn.disabled = false;
+  window.scrollTo({top:0});
+}
+
+// Returning visitor (venue wifi drops, page reloads): skip straight to the map
+try {
+  const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || 'null');
+  if(saved && saved.name) showMap(saved.name.split(' ')[0], false);
+} catch(e) {}
+
+document.getElementById('notYou').addEventListener('click', () => {
+  try { localStorage.removeItem(STORAGE_KEY); } catch(e) {}
+  showForm();
+});
+
+/* ---------- Submit ---------- */
+document.getElementById('checkinForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  const name  = document.getElementById('ciName').value.trim();
+  const phone = document.getElementById('ciPhone').value.trim();
+  const err   = document.getElementById('formError');
+
+  if(!name || phone.replace(/\D/g,'').length < 10){
+    err.textContent = !name ? 'Please add your name.' : 'Please add a valid phone number.';
+    err.hidden = false; document.getElementById('formFine').hidden = true;
+    document.getElementById(!name ? 'ciName' : 'ciPhone').focus();
+    return;
+  }
+  err.hidden = true;
+
+  const btn = document.getElementById('checkinSubmitBtn');
+  btn.textContent = 'One moment…'; btn.disabled = true;
+
+  const payload = {
+    formType: 'checkin',
+    city: 'Hyderabad',
+    name, phone,
+    email: document.getElementById('ciEmail').value.trim(),
+    shoppingFor: Array.from(sel.occasion).join(', '),      // occasion (same column as before)
+    shoppingWith: Array.from(sel.with).join(', '),         // same column as before
+    lookingFor: Array.from(sel.looking).join(', '),        // NEW
+    budget: Array.from(sel.budget).join(', '),             // NEW
+    notes: document.getElementById('ciNotes').value.trim() // NEW
+  };
+
+  // Log best-effort. Never make a visitor wait more than 4s on flaky venue wifi.
+  const send = fetch(TSM_WEBAPP_URL, {
+    method:'POST', headers:{'Content-Type':'text/plain;charset=utf-8'}, body:JSON.stringify(payload)
+  }).catch(() => console.warn('Check-in log failed to send. Showing map anyway.'));
+  const timeout = new Promise(r => setTimeout(r, 4000));
+
+  Promise.race([send, timeout]).then(() => {
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify({name})); } catch(e) {}
+    showMap(name.split(' ')[0], true);
+  });
+});
+
+/* ---------- Map lightbox ---------- */
+const lb = document.getElementById('lightbox'), frame = document.getElementById('mapFrame');
+const openLb = () => { lb.hidden = false; document.body.style.overflow = 'hidden'; };
+const closeLb = () => { lb.hidden = true; document.body.style.overflow = ''; };
+frame.addEventListener('click', openLb);
+frame.addEventListener('keydown', e => { if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); openLb(); } });
+document.getElementById('lightboxClose').addEventListener('click', closeLb);
+document.addEventListener('keydown', e => { if(e.key === 'Escape' && !lb.hidden) closeLb(); });
+</script>
+</body>
+</html>
