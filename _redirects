@@ -1,0 +1,62 @@
+# Canonical redirects — old/spaced-name paths → clean slugs
+/clients/talent/Thanmai%20Bolt.html        /clients/talent/thanmai-bolt.html      301
+/clients/talent/--Divya-Bandaru.html       /clients/talent/divya-bandaru.html     301
+/clients/talent/Prashanth%20Podagatlapalli.html  /clients/talent/prashanth-podagatlapalli.html  301
+/clients/talent/Nalgonda%20Gaddar%20Narsanna.html  /clients/talent/nalgonda-gaddar.html  301
+/clients/talent/Manoj-Juloori.html         /clients/talent/manoj-juloori.html     301
+/clients/talent/Niklesh-Sunkoji.html       /clients/talent/niklesh-sunkoji.html   301
+/clients/talent/Sindhu-Dakavarapu.html     /clients/talent.html 301
+/clients/talent/Sai-Yogi-G.html            /clients/talent/sai-yogi-g.html        301
+/clients/talent/Sai-Prasanna-K.html        /clients/talent/sai-prasanna.html      301
+
+# Old root-level Digital Footprint service pages → canonical /services/ versions
+/digital-footprint.html      /services/digital-footprint.html       301
+/imdb-management.html        /services/imdb-management.html         301
+/wikipedia-consulting.html   /services/wikipedia-consulting.html    301
+/knowledge-panel.html        /services/google-knowledge-panel.html  301
+/pr-notability.html          /services/pr-notability.html           301
+
+
+# Renamed/deduplicated images that were used as social-card (og:image) URLs
+/images/The%20Style%20Mill/TSM-Season6-OG-Share.jpg  /images/the-style-mill/tsm-season6-og-share.jpg  301
+/images/albums/Sheesh%20Mahal%20%28Original%20Motion%20Picture%20Soundtrack%29%20-%20Tapeloop%20Records%20-%20MC%20Joint.jpg  /images/albums/sheehsmahal-jukebox.jpeg  301
+/images/albums/Zaruri%20Behes%20-%20Faraz%20OG%20-%20MC%20Joint.png  /images/albums/zaruri-behes-faraz-og-mc-joint.jpg  301
+/images/albums/chivaraku%20migiledhi%20%20-%20Tapeloop%20Records%20-%20MC%20Joint.jpg  /images/albums/chivaraku-migiledhi-tapeloop-records-mc-joint.jpg  301
+/images/homepage/On%20Sets%20of%20Gopi%20Galla%20Goa%20Trip.jpg  /images/homepage/on-sets-of-gopi-galla-goa-trip.jpg  301
+/images/mc/MC%20Joint%20Founder%20Sonu%20Mohkh.jpg  /images/mc/mc-joint-founder-sonu-mohkh.jpg  301
+/images/mc/MC%20Joint%20Masters%20of%20Ceremonies%20Hyderabad%20Talent%20Agency%20Hyderabad.jpg  /images/mc/mc-joint-masters-of-ceremonies-hyderabad-talent-agency-hyderabad.jpg  301
+/images/posters/Project-Beyond-Physical-MC-%20%281%29.jpg  /images/posters/project-beyond-physical-mc-1.jpg  301
+/images/projects/MC-Project-Avanti-Cinema-first-meeting-amid-covid19%20%281%29.jpg  /images/projects/mc-project-avanti-cinema-first-meeting-amid-covid19-1.jpg  301
+/images/projects/MC-Project-Avanti-Cinema-first-meeting-amid-covid19%20%284%29.jpg  /images/projects/mc-project-avanti-cinema-first-meeting-amid-covid19-4.jpg  301
+/images/talent/Ajith%20Mohan%20x01.jpg  /images/talent/ajith-mohan-x01.jpg  301
+/images/talent/B12%20MC%20Joint/MC-Talent-B12-Main-header-trio-faraz-og-kiyaan-ink-toxic-BTS-Zaban-hai-0.jpg  /images/talent/b12-mc-joint/mc-talent-b12-main-header-trio-faraz-og-kiyaan-ink-toxic-bts-zaban-hai-0.jpg  301
+/images/talent/Divya%20Bandaru.jpg  /images/talent/divya-bandaru.jpg  301
+/images/talent/Pawon%20Ramesh%20Actor%20Headshot%20Represented%20by%20MC%20Joint.jpg  /images/talent/pawon-ramesh-actor-headshot-represented-by-mc-joint.jpg  301
+
+# --- Site restructure (Oct 2026): merged / moved pages ---
+/blog-imdb-page-matters            /blog/imdb-page-matters.html            301
+/blog-imdb-page-matters.html       /blog/imdb-page-matters.html            301
+/avanti-cinema-transformation      /works/avanti-cinema.html               301
+/avanti-cinema-transformation.html /works/avanti-cinema.html               301
+/story-discussion-s2               /works/story-discussion-s2.html         301
+/story-discussion-s2.html          /works/story-discussion-s2.html         301
+/viral-video-screening             /works/viral-video.html                 301
+/viral-video-screening.html        /works/viral-video.html                 301
+/tapeloop-music-distribution       /clients/businesses.html#tapeloop-records  301
+/tapeloop-music-distribution.html  /clients/businesses.html#tapeloop-records  301
+/nalgonda-gaddar-narsanna          /clients/talent/nalgonda-gaddar.html    301
+/nalgonda-gaddar-narsanna.html     /clients/talent/nalgonda-gaddar.html    301
+/search                            /                                       301
+/search.html                       /                                       301
+/search-index.json                 /                                       301
+
+# --- Talent page templates are for internal use only; never serve them ---
+/clients/talent/template-*         /404.html                               404!
+/clients/talent/TEMPLATE-GUIDE.md  /404.html                               404!
+
+# Build scripts are not part of the public site
+/tools/*   /404.html   404!
+
+# Profile removed (Oct 2026)
+/clients/talent/sindhu-dakavarapu        /clients/talent.html   301
+/clients/talent/sindhu-dakavarapu.html   /clients/talent.html   301

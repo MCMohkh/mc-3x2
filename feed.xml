@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+  xmlns:atom="http://www.w3.org/2005/Atom"
+  xmlns:media="http://search.yahoo.com/mrss/"
+  xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>MC Joint — Music, Talent &amp; Cinema</title>
+    <link>https://mcjoint.in</link>
+    <description>News, projects and updates from MC Joint — Hyderabad's creative agency for music distribution, talent management and Telugu cinema strategy.</description>
+    <language>en-IN</language>
+    <copyright>© 2026 MC Joint. All rights reserved.</copyright>
+    <managingEditor>info@mcjoint.in (MC Joint)</managingEditor>
+    <webMaster>info@mcjoint.in (MC Joint)</webMaster>
+    <lastBuildDate>Mon, 05 Oct 2026 00:00:00 +0530</lastBuildDate>
+    <ttl>1440</ttl>
+    <image>
+      <url>https://mcjoint.in/images/mc/mc-joint-logo-5-mc-joint-block-logo.png</url>
+      <title>MC Joint</title>
+      <link>https://mcjoint.in</link>
+      <width>144</width><height>144</height>
+    </image>
+    <atom:link href="https://mcjoint.in/feed.xml" rel="self" type="application/rss+xml"/>
+
+    <!-- Most recent first -->
+
+    <item>
+      <title>Pickpocket — A Telugu Film by Divya Bandaru | Avanti Cinema × MC Joint</title>
+      <link>https://mcjoint.in/works/pickpocket.html</link>
+      <guid isPermaLink="true">https://mcjoint.in/works/pickpocket.html</guid>
+      <description>Pickpocket (2022) is a Telugu film written and directed by Divya Bandaru, a tribute to Bresson. MC Joint was the marketing partner. Watch the full film, trailer and soundtrack.</description>
+      <pubDate>Mon, 05 Oct 2026 00:00:00 +0530</pubDate>
+      <dc:creator>MC Joint</dc:creator>
+    </item>
+    <item>
+      <title>Why Your IMDb Page Matters More Than You Think</title>
+      <link>https://mcjoint.in/blog/imdb-page-matters.html</link>
+      <guid isPermaLink="true">https://mcjoint.in/blog/imdb-page-matters.html</guid>
+      <description>Why an accurate IMDb profile matters for actors, directors, musicians and studios — and what ongoing maintenance involves.</description>
+      <pubDate>Thu, 01 Jun 2023 00:00:00 +0530</pubDate>
+      <dc:creator>MC Joint</dc:creator>
+    </item>
+    <item>
+      <title>Beyond Physical — Documentary Series by Prashanth Podagatlapalli | Flintstory × MC Joint</title>
+      <link>https://mcjoint.in/works/beyond-physical.html</link>
+      <guid isPermaLink="true">https://mcjoint.in/works/beyond-physical.html</guid>
+      <description>Beyond Physical is a documentary series produced by Flintstory and directed by Prashanth Podagatlapalli, exploring the discipline and philosophy behind parkour, boxing, BMX cycling, CrossFit and yoga. Five episodes shot across Hyderabad; currently in post-production.</description>
+      <pubDate>Wed, 28 May 2026 00:00:00 +0530</pubDate>
+      <dc:creator>MC Joint</dc:creator>
+    </item>
+    <item>
+      <title>Viral Video — Debut Feature Film by Prashanth Podagatlapalli | MC Joint</title>
+      <link>https://mcjoint.in/works/viral-video.html</link>
+      <guid isPermaLink="true">https://mcjoint.in/works/viral-video.html</guid>
+      <description>Viral Video is the debut directorial feature by writer-director Prashanth Podagatlapalli, currently in post-production. Cast: Pooja Bhavani, Feroze MNA, Laxman Meesala, Muni Myatari. Music: Ravi Nidamarthy. Editor: Rohit Penumatsa.</description>
+      <pubDate>Mon, 20 Jan 2025 00:00:00 +0530</pubDate>
+      <dc:creator>MC Joint</dc:creator>
+    </item>
+    <item>
+      <title>Gopi Galla Goa Trip — Avanti Cinema's Rural Telangana Road Comedy (2025)</title>
+      <link>https://mcjoint.in/works/gopi-galla-goa-trip.html</link>
+      <guid isPermaLink="true">https://mcjoint.in/works/gopi-galla-goa-trip.html</guid>
+      <description>Gopi Galla Goa Trip is a rural Telangana adventure-comedy directed by Rohit Penumatsa and Camp Sasi, starring Ajith Mohan as Gopi and featuring Raju Shivaratri and Pawon Ramesh. Produced by Avanti Cinema, represented by MC Joint.</description>
+      <pubDate>Fri, 10 Jan 2025 00:00:00 +0530</pubDate>
+      <dc:creator>MC Joint</dc:creator>
+      <media:thumbnail url="https://mcjoint.in/images/talent/MC-Raju-Shivaratri-in-Gopi-Galla-Goa-Trip.png" width="400" height="225"/>
+    </item>
+    <item>
+      <title>Sheeshmahal — A Decade in the Making | Avanti Cinema × MC Joint</title>
+      <link>https://mcjoint.in/works/sheeshmahal.html</link>
+      <guid isPermaLink="true">https://mcjoint.in/works/sheeshmahal.html</guid>
+      <description>Sheeshmahal is a landmark Telugu film by Avanti Cinema, directed by Rohit Penumatsa and Camp Sasi with music by Vivek Sagar. A decade in the making, distributed and strategised by MC Joint.</description>
+      <pubDate>Mon, 15 Jul 2024 00:00:00 +0530</pubDate>
+      <dc:creator>MC Joint</dc:creator>
+      <media:thumbnail url="/images/homepage/Hero-slide-x.jpg" width="400" height="225"/>
+    </item>
+    <item>
+      <title>Avanti Cinema — Six Years of Independent Telugu Storytelling | MC Joint</title>
+      <link>https://mcjoint.in/works/avanti-cinema.html</link>
+      <guid isPermaLink="true">https://mcjoint.in/works/avanti-cinema.html</guid>
+      <description>A retrospective on Avanti Cinema's journey — from Pickpocket to Sheeshmahal. Directed by Rohit Penumatsa and Camp Sasi. MC Joint's longest-standing creative partnership in Telugu independent cinema.</description>
+      <pubDate>Thu, 01 Jun 2023 00:00:00 +0530</pubDate>
+      <dc:creator>MC Joint</dc:creator>
+      <media:thumbnail url="https://mcjoint.in/images/talent/talent-rohit-penumatsa.jpg" width="400" height="225"/>
+    </item>
+    <item>
+      <title>Nalgonda Gaddar Narsanna — The Voice That Crossed Every Stage in 2023</title>
+      <link>https://mcjoint.in/clients/talent/nalgonda-gaddar.html</link>
+      <guid isPermaLink="true">https://mcjoint.in/clients/talent/nalgonda-gaddar.html</guid>
+      <description>Nalgonda Gaddar Narsanna's folk songs resonated across both Telugu states during the 2023 elections — lending his voice to all parties alike. Represented by MC Joint since late 2021.</description>
+      <pubDate>Tue, 01 Aug 2023 00:00:00 +0530</pubDate>
+      <dc:creator>MC Joint</dc:creator>
+    </item>
+
+  </channel>
+</rss>
