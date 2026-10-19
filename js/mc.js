@@ -109,3 +109,62 @@
 
   var y = d.getElementById('year'); if (y) y.textContent = new Date().getFullYear();
 })();
+
+/* ---- v2: typewriter headline + flipping word ---- */
+(function(){
+  var rm=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var h=document.querySelector('h1.tw');
+  if(h&&!rm){
+    var bs=[].slice.call(h.querySelectorAll('b')),full=bs.map(function(b){return b.textContent});
+    bs.forEach(function(b){b.style.animation='none';b.innerHTML='<i class="t"></i><i class="g">'+full[bs.indexOf(b)]+'</i>'});
+    var li=0,ci=0,caret=document.createElement('u');caret.className='caret',tn=null;
+    (function tick(){
+      if(li>=bs.length){setTimeout(function(){caret.classList.add('done')},1800);return}
+      var b=bs[li],t=b.querySelector('.t'),g=b.querySelector('.g');
+      if(ci===0){tn=document.createTextNode('');t.appendChild(tn);t.appendChild(caret)}
+      ci++;tn.nodeValue=full[li].slice(0,ci);g.textContent=full[li].slice(ci);
+      if(ci>=full[li].length){li++;ci=0;setTimeout(tick,260)}else setTimeout(tick,li===0&&ci===1?500:55);
+    })();
+  }
+  var w=document.getElementById('flipWord');
+  if(w){
+    var words=['Music','Crafts','Motion','Collaborations','Media','Community','Marketing','Celebrations'],i=0;
+    setInterval(function(){
+      w.classList.add('out');
+      setTimeout(function(){i=(i+1)%words.length;w.textContent=words[i];w.classList.remove('out');w.classList.add('in');
+        requestAnimationFrame(function(){requestAnimationFrame(function(){w.classList.remove('in')})})},320);
+    },2600);
+  }
+})();
+
+/* ---- v2: in-place video, episode picker, filmography toggle ---- */
+(function(){
+  function play(card){
+    if(card.classList.contains('playing'))return;
+    document.querySelectorAll('.vc.playing').forEach(function(o){stop(o)});
+    var id=card.getAttribute('data-yt'),lst=card.getAttribute('data-list'),vt=card.querySelector('.vt');
+    if(!vt)return;
+    card.__orig=vt.innerHTML;
+    var src='https://www.youtube-nocookie.com/embed/'+id+'?autoplay=1&rel=0'+(lst?'&list='+lst:'');
+    vt.innerHTML='<iframe src="'+src+'" title="Video" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>';
+    card.classList.add('playing');
+  }
+  function stop(card){if(card.__orig!=null){card.querySelector('.vt').innerHTML=card.__orig}card.classList.remove('playing')}
+  document.addEventListener('click',function(e){
+    var c=e.target.closest&&e.target.closest('.vc[data-yt]');
+    if(c){e.preventDefault();play(c);return}
+    var b=e.target.closest&&e.target.closest('.epb');
+    if(b){
+      var w=b.closest('[data-eps]');
+      w.querySelectorAll('.epb').forEach(function(x){x.classList.remove('on');x.setAttribute('aria-pressed','false')});
+      b.classList.add('on');b.setAttribute('aria-pressed','true');
+      w.querySelector('#epN').textContent=b.dataset.n;w.querySelector('#epT').textContent=b.dataset.t;
+      w.querySelector('#epD').textContent=b.dataset.d;w.querySelector('#epS').textContent=b.dataset.s;
+      w.querySelector('#epImg').src=b.dataset.i;return}
+    var t=e.target.closest&&e.target.closest('.disc-btn');
+    if(t){var l=t.previousElementSibling;var o=l.classList.toggle('open');t.textContent=o?'Show fewer ↑':'Show full filmography ('+t.dataset.n+') ↓'}
+  });
+  document.addEventListener('keydown',function(e){
+    if((e.key==='Enter'||e.key===' ')&&e.target.classList&&e.target.classList.contains('vc')&&e.target.hasAttribute('data-yt')){e.preventDefault();play(e.target)}
+  });
+})();

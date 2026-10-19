@@ -27,10 +27,7 @@ Static site (HTML/CSS/JS), deployed on Netlify. Primary domain: `https://mcjoint
 ## Press kits
 Every talent profile has a one/two-page PDF in `/press-kits/`. After editing a profile, rebuild with `python3 tools/build_press_kits.py [slug]` (needs `reportlab fonttools brotli pillow beautifulsoup4 lxml pymupdf`) and commit the PDFs. MC Joint's contact details used in the PDFs are at the top of `tools/build_press_kits.py`. The `tools/` folder is blocked from the public site in `_redirects`.
 
-## Redesign (Oct 2026): editorial direction
-Ideas / Perspective / Proof. Field Notes lives at `/field-notes.html` (ideas data in the page; series: Field Notes, The Fine Print, Behind the Work, People Are the IP, Digital Shadow). The old `css/style.css` is now used only by `/thestylemill/` and `/PR-DB/`; every other page uses `css/mc.css` and `js/mc.js`. Fonts: `fonts/anton.woff2`, `instrument-serif*.woff2`, `hanken-grotesk.woff2`. Photos that are not yet in `/images/talent/` show a typographic tile automatically.
-
-## Styles (legacy file)
+## Styles (one file)
 All CSS lives in **`css/style.css`** — there are no other stylesheets and no `<style>` blocks in pages. It is organised in sections (fonts/icons, base, talent profiles, per-page styles, microsites) described in the comment at the top of the file.
 - Every page's `<html>` has a page class (`pg-…`); microsites also have `ms` plus their own class (`ms-tsm`, `ms-prdb`, `ms-thanks`).
 - Page-specific rules are written as `:where(.pg-<page>) <selector>` (zero extra specificity, so they can never leak onto another page).
