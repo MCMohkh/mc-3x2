@@ -443,7 +443,7 @@ label:has(input[name=bot-field]),input[name=bot-field]{position:absolute;left:-9
 .split>aside .btn{display:flex;justify-content:center;width:100%}
 
 /* ======================= v2 (feedback round 1) ======================= */
-@font-face{font-family:'DOX';src:url('/fonts/dox.woff2') format('woff2'),url('/fonts/dox.otf') format('opentype'),url('/fonts/dox.ttf') format('truetype');font-display:swap}
+@font-face{font-family:'DOX';src:url('/fonts/Dox-Regular.woff2') format('woff2'),url('/fonts/Dox%20W01%20Regular.otf') format('opentype');font-display:swap}
 .brand .dox{font:400 30px/1 'DOX','Anton',var(--display);color:var(--red);letter-spacing:.04em}
 .brand img{height:40px}
 /* hero: ~15% shorter, typewriter, flipping word, marquee */
