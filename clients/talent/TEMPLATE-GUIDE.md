@@ -1,4 +1,4 @@
-# MC Joint — Talent Profile Templates
+# MC — Talent Profile Templates
 ## Artist → Template Mapping Guide
 
 ---
@@ -92,7 +92,7 @@ Examples:
 - Multi-role tag system (`talent-role-tag` badges)
 - Keyword cloud (craft/genre descriptors)
 - Artist initials fallback when photo is missing
-- Bio structure (4 paragraphs: origin → craft → credits → MC Joint context)
+- Bio structure (4 paragraphs: origin → craft → credits → MC context)
 - Quick Info sidebar card
 - "Our Association" block (black, left red border)
 - CTA buttons (Enquire + View All Talent)
