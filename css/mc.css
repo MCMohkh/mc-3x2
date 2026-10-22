@@ -610,3 +610,7 @@ a.chip:hover{border-color:var(--red);color:#fff}
 .bb p{margin:0 0 .8em;color:#b4b4bc;font-size:15.5px;line-height:1.55}.bb p a{border-bottom:1px solid var(--red);color:#fff}
 .bw{list-style:none;margin:.4em 0 .8em;padding:0;font-size:14.5px;color:#9a9aa3}.bw li{padding:6px 0;border-top:1px solid var(--line)}.bw a{color:#fff;border-bottom:1px solid var(--red)}
 .mcx{font-family:'DOX','Anton',var(--display);color:var(--red);font-style:normal;letter-spacing:.04em;font-size:1.04em}
+
+/* round 4: grid children may shrink (fixes sideways scroll on phones) */
+.split>*,.proj-body .prose,.prof .prose,.sec .prose{min-width:0}
+.prose{overflow-wrap:break-word}

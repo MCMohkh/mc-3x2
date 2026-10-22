@@ -1,5 +1,5 @@
 /**
- * MC — Gallery Lightbox
+ * MC Joint — Gallery Lightbox
  */
 (function () {
   'use strict';
