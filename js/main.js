@@ -1,4 +1,4 @@
-// MC JOINT — SHARED JS
+// MC — SHARED JS
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -75,3 +75,4 @@ document.addEventListener('DOMContentLoaded', () => {
   }, { threshold: 0.1 });
   document.querySelectorAll('.fade-in').forEach(el => fadeObserver.observe(el));
 });
+

@@ -25,8 +25,8 @@ from reportlab.platypus import BaseDocTemplate,PageTemplate,Frame,Paragraph,Spac
 ROOT=T.ROOT
 OUT=os.path.join(ROOT,'press-kits')
 RED=colors.HexColor('#E10600'); BLACK=colors.HexColor('#0A0A0A'); GREY=colors.HexColor('#666666'); LIGHT=colors.HexColor('#F4F4F4'); LINE=colors.HexColor('#DDDDDD')
-# ---- MC Joint's own contact details (as shown on mcjoint.in/contact.html) ----
-CONTACT=dict(brand='MC Joint — Masters of Ceremonies',founder='Sonu Mohkh, Founder',email='info@mcjoint.in',phone='+91 90144 14114',
+# ---- MC's own contact details (as shown on mcjoint.in/contact.html) ----
+CONTACT=dict(brand='MC — Masters of Ceremonies',founder='Sonu Mohkh, Founder',email='sonumohkh@gmail.com',phone='+91 90144 14114',
              whatsapp='https://wa.me/919014414114',location='Hyderabad, Telangana, India',site='mcjoint.in')
 SHOW_FOUNDER=True
 MAX_FILMS=30
@@ -94,7 +94,7 @@ def build(slug,lvl=0):
         c.setStrokeColor(LINE); c.line(M,12*mm,W-M,12*mm); c.setFillColor(GREY); c.setFont('Inter',7.5)
         c.drawString(M,8*mm,f"{CONTACT['site']}/clients/talent/{slug}  ·  Updated {datetime.date.today().strftime('%B %Y')}")
         c.drawRightString(W-M,8*mm,f'Page {doc.page}'); c.restoreState()
-    doc=BaseDocTemplate(path,pagesize=A4,leftMargin=M,rightMargin=M,topMargin=BAND+6*mm,bottomMargin=17*mm,title=f"{d['name']} — Press Kit — MC Joint",author='MC Joint',subject='Talent profile')
+    doc=BaseDocTemplate(path,pagesize=A4,leftMargin=M,rightMargin=M,topMargin=BAND+6*mm,bottomMargin=17*mm,title=f"{d['name']} — Press Kit — MC",author='MC',subject='Talent profile')
     doc.addPageTemplates([PageTemplate(id='p',frames=[Frame(M,17*mm,W-2*M,H-BAND-6*mm-17*mm,leftPadding=0,rightPadding=0,topPadding=0,bottomPadding=0)],onPage=page)])
     el=[]; cw=W-2*M
     # hero
@@ -116,7 +116,7 @@ def build(slug,lvl=0):
         q=Table(data,colWidths=[26*mm,cw/2-26*mm,26*mm,cw/2-26*mm]); q.setStyle(TableStyle([('BACKGROUND',(0,0),(-1,-1),LIGHT),('VALIGN',(0,0),(-1,-1),'TOP'),('TOPPADDING',(0,0),(-1,-1),5),('BOTTOMPADDING',(0,0),(-1,-1),5),('LEFTPADDING',(0,0),(-1,-1),8),('RIGHTPADDING',(0,0),(-1,-1),6)]))
         el+=[Paragraph('QUICK INFO',S['h']),q]
     # about (one or two paragraphs)
-    paras=[p for p in d['about'] if 'info@mcjoint.in' not in p and 'reach out to us' not in p.lower()][:LV['paras']]
+    paras=[p for p in d['about'] if 'sonumohkh@gmail.com' not in p and 'reach out to us' not in p.lower()][:LV['paras']]
     if paras:
         el.append(Paragraph('ABOUT',S['h'])); el+= [Paragraph(esc(trim(p,LV['about'])),S['body']) for p in paras]
     # filmography
@@ -137,7 +137,7 @@ def build(slug,lvl=0):
     if links:
         el.append(Paragraph('FIND ONLINE',S['h']))
         for lab,u in links: el.append(Paragraph(f'<b>{esc(lab)}</b> &nbsp; <a href="{u}" color="#E10600">{esc(u)}</a>',S['link']))
-    # contact (MC Joint's own details)
+    # contact (MC's own details)
     C=CONTACT
     lines=[Paragraph(f'REPRESENTED BY {esc(C["brand"]).upper()}',S['ch'])]
     if SHOW_FOUNDER: lines.append(Paragraph(esc(C['founder']),S['cw']))

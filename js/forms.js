@@ -1,10 +1,10 @@
-/* MC Joint — form handler.
+/* MC — form handler.
  * Sends form submissions to a Google Apps Script web app (writes a row to a Google Sheet and
  * notifies by email / WhatsApp / Telegram). Forms are marked with data-mc-form="<name>".
  */
 (function () {
   var MC_FORMS_ENDPOINT = 'https://script.google.com/macros/s/AKfycbzgmoJlJhIgYfz2VwatAIx_Dvs1YLdIC6SQfWhl0UB6PPGng3VKsVWsmTuobRkJ2Sfk/exec';
-  var FALLBACK_EMAIL = 'info@mcjoint.in';
+  var FALLBACK_EMAIL = 'sonumohkh@gmail.com';
 
   var forms = document.querySelectorAll('form[data-mc-form]');
   if (!forms.length) return;
