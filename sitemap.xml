@@ -570,6 +570,17 @@
   </url>
 
   <url>
+    <loc>https://mcjoint.in/works/illu.html</loc>
+    <lastmod>2026-10-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://mcjoint.in/images/albums/illu-tapeloop-records-mc-joint.jpg</image:loc>
+      <image:title>Chivaraku Migiledhi</image:title>
+    </image:image>
+  </url>
+
+  <url>
     <loc>https://mcjoint.in/works/gopi-galla-goa-trip.html</loc>
     <lastmod>2026-10-06</lastmod>
     <changefreq>monthly</changefreq>
