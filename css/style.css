@@ -2476,3 +2476,12 @@ html.mc26 .ideas-grid .is-light .st{font:400 clamp(1.9rem,3.7vw,3.3rem)/1.02 var
 html.mc26 .ideas-grid .note h3{font:700 15px/1.3 var(--font-sans);margin:0 0 6px}
 html.mc26 .ideas-grid .note p{color:#8C8C8C;font-size:16px;margin:0;max-width:46ch}
 @media(max-width:860px){html.mc26 .ideas-grid{grid-template-columns:1fr}html.mc26 .ideas-grid .b{margin-top:0}}
+
+/* The ideas: same size, same top line, same type scale on every card */
+html.mc26 .ideas-grid{align-items:stretch}
+html.mc26 .ideas-grid .b{margin-top:0}
+html.mc26 .ideas-grid .poster{aspect-ratio:4/5;margin-bottom:18px}
+html.mc26 .ideas-grid .st{font-size:clamp(1.9rem,3.1vw,2.9rem);line-height:.98}
+html.mc26 .ideas-grid .is-light .st{font-size:clamp(1.9rem,3.1vw,2.9rem);line-height:1.04}
+html.mc26 .ideas-grid .note h3,html.mc26 .ideas-grid .note p{max-width:none}
+@media(max-width:860px){html.mc26 .ideas-grid .st,html.mc26 .ideas-grid .is-light .st{font-size:clamp(2rem,9vw,3.2rem)}}
