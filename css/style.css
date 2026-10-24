@@ -2485,3 +2485,10 @@ html.mc26 .ideas-grid .st{font-size:clamp(1.9rem,3.1vw,2.9rem);line-height:.98}
 html.mc26 .ideas-grid .is-light .st{font-size:clamp(1.9rem,3.1vw,2.9rem);line-height:1.04}
 html.mc26 .ideas-grid .note h3,html.mc26 .ideas-grid .note p{max-width:none}
 @media(max-width:860px){html.mc26 .ideas-grid .st,html.mc26 .ideas-grid .is-light .st{font-size:clamp(2rem,9vw,3.2rem)}}
+
+/* The ideas: six cards, two rows of three, all level */
+html.mc26 .ideas-grid{row-gap:clamp(36px,5vw,64px);align-items:start}
+html.mc26 .ideas-grid .is-black{background:#040409;color:#fff;border:1px solid #3E3E3E}
+html.mc26 .ideas-grid .is-black .ser{color:#8C8C8C}
+html.mc26 .ideas-grid .is-black .st{font:italic 400 clamp(1.9rem,3.1vw,2.9rem)/1.04 var(--font-serif);text-transform:none;letter-spacing:-.015em}
+@media(max-width:860px){html.mc26 .ideas-grid .is-black .st{font-size:clamp(2rem,9vw,3.2rem)}}
