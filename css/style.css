@@ -2499,3 +2499,5 @@ html.mc26 .ideas-grid .is-black .st{font:italic 400 clamp(1.9rem,3.1vw,2.9rem)/1
 .net-logos img[data-tone=light]{background:#111!important;border:1px solid #2e2e2e!important}
 .net-logos img:hover{opacity:1!important}
 .client-card-header img[data-tone=dark]{background:#fff!important;object-fit:contain}
+/* DOX: point at the font files actually in /fonts */
+@font-face{font-family:"DOX";font-style:normal;font-weight:400;font-display:swap;src:url("/fonts/Dox-Regular.woff2") format("woff2"),url("/fonts/Dox%20W01%20Regular.ttf") format("truetype")}
