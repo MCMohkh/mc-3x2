@@ -2502,3 +2502,11 @@ html.mc26 .ideas-grid .is-black .st{font:italic 400 clamp(1.9rem,3.1vw,2.9rem)/1
 /* DOX: point at the font files actually in /fonts */
 @font-face{font-family:"DOX";font-style:normal;font-weight:400;font-display:swap;src:url("/fonts/Dox-Regular.woff2") format("woff2"),url("/fonts/Dox%20W01%20Regular.ttf") format("truetype")}
 html.mc26 .m-logos figure a{display:flex;align-items:center;justify-content:center;width:100%;height:100%;color:inherit;text-decoration:none}
+/* router cards: keep text colour locked (visited/tap states) and fill the odd last tile */
+html.mc26 .m-r1,html.mc26 .m-r1:visited,html.mc26 .m-r1 small,html.mc26 .m-r1 b,
+html.mc26 .m-r2,html.mc26 .m-r2:visited,html.mc26 .m-r2 small,html.mc26 .m-r2 b{color:#040409!important}
+html.mc26 .m-r3,html.mc26 .m-r3:visited,html.mc26 .m-r3 b,html.mc26 .m-r4:visited,html.mc26 .m-r4 b,html.mc26 .m-r5:visited,html.mc26 .m-r5 b{color:#fff!important}
+html.mc26 .m-r3 small,html.mc26 .m-r4 small,html.mc26 .m-r5 small{color:#8C8C8C!important}
+html.mc26 .m-r2 small,html.mc26 .m-r1 small{opacity:.85}
+@media (max-width:900px){html.mc26 .m-router{grid-template-columns:repeat(2,1fr)}html.mc26 .m-r5{grid-column:1/-1;min-height:150px}}
+@media (max-width:360px){html.mc26 .m-router{grid-template-columns:1fr}}
