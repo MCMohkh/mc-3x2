@@ -5,7 +5,6 @@ Disallow: /404.html
 Disallow: /admin/
 Disallow: /PR-DB/
 Disallow: /press-kits/
-Disallow: /press-kit.html
 Disallow: /tools/
 
 Sitemap: https://mcjoint.in/sitemap.xml
