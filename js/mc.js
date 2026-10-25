@@ -1,4 +1,4 @@
-/* MC Joint — site behaviour. Progressive: every page works without it. */
+/* MC — site behaviour. Progressive: every page works without it. */
 (function () {
   var d = document, w = window;
   var reduce = w.matchMedia && w.matchMedia('(prefers-reduced-motion:reduce)').matches;
