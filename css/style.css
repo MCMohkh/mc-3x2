@@ -2510,3 +2510,15 @@ html.mc26 .m-r3 small,html.mc26 .m-r4 small,html.mc26 .m-r5 small{color:#8C8C8C!
 html.mc26 .m-r2 small,html.mc26 .m-r1 small{opacity:.85}
 @media (max-width:900px){html.mc26 .m-router{grid-template-columns:repeat(2,1fr)}html.mc26 .m-r5{grid-column:1/-1;min-height:150px}}
 @media (max-width:360px){html.mc26 .m-router{grid-template-columns:1fr}}
+/* clients: dark logos sit on white tiles so they read on the dark theme */
+.pg-clients .cat-mosaic img[data-tone=dark]{background:#fff!important}
+.pg-clients .cat-mosaic img[data-tone=light]{background:#111!important}
+/* case studies: equal cards, image boxes and buttons */
+.pg-case-studies .cs-cards{grid-template-columns:repeat(auto-fill,minmax(300px,1fr));align-items:stretch}
+.pg-case-studies .cs-card{display:flex;flex-direction:column;height:100%}
+.pg-case-studies .cs-card img{width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;flex:0 0 auto}
+.pg-case-studies .cs-card.cs-logo img{object-fit:contain;background:#111;padding:2.2rem;box-sizing:border-box}
+.pg-case-studies .cs-card>div{display:flex;flex-direction:column;flex:1;gap:.15rem}
+.pg-case-studies .cs-card p{flex:1}
+.pg-case-studies .cs-btn{display:inline-block;align-self:flex-start;margin-top:1rem;padding:.55rem 1rem;border:1px solid var(--red);border-radius:999px;color:#fff;font-weight:700;font-size:.85rem}
+.pg-case-studies .cs-card:hover .cs-btn{background:var(--red)}
